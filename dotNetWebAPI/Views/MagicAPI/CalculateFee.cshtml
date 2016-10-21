@@ -1,0 +1,87 @@
+﻿@model dotNetWebAPI.Models.CalculateFeeModels.FEE
+
+@{
+    ViewBag.Title = "CalculateFee";
+}
+<h2>Calculate Fee (POST)</h2>
+
+
+<div class="form-horizontal">
+    <h4>Magic Calculate Fee POST Using .NET XDocument XML</h4>
+    <hr>
+
+    <div class="form-group">
+        <label class="control-label col-md-2" for="CLIENTKEY">Client Key</label>
+        <i class="fa fa-question-circle right" title="" data-placement="right" data-toggle="tooltip" href="#" data-original-title="Client api key (unique identifier) i.e. '8E3F2...' usually 32 characters in length" aria-hidden="true"></i>
+        <div class="col-md-4">
+            <input value="8E3F20CE5619431D9BE737FD80E3E990" class="form-control text-box single-line" id="CLIENTKEY" name="CLIENTKEY" type="text">
+            <span class="field-validation-valid text-danger" data-valmsg-for="CLIENTKEY" data-valmsg-replace="true"></span>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-md-2" for="PAYMENTMETHOD">Payment Method</label>
+        <i class="fa fa-question-circle right" title="" data-placement="right" data-toggle="tooltip" href="#" data-html="true" data-original-title="0 for Credit Card<br>1 for Check" aria-hidden="true"></i>
+        <div class="col-md-4">
+            <input value="0" class="form-control text-box single-line" id="PAYMENTMETHOD" name="PAYMENTMETHOD" type="text">
+            <span class="field-validation-valid text-danger" data-valmsg-for="PAYMENTMETHOD" data-valmsg-replace="true"></span>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-md-2" for="CARDTYPE">Card Type</label>
+        <i class="fa fa-question-circle right" title="" data-placement="right" data-toggle="tooltip" href="#" data-html="true" data-original-title="3 for AMEX<br>4 for VISA<br>5 for MasterCard<br>6 for Discovery" aria-hidden="true"></i>
+        <div class="col-md-4">
+            <input value="4" class="form-control text-box single-line" id="CARDTYPE" name="CARDTYPE" type="text">
+            <span class="field-validation-valid text-danger" data-valmsg-for="CARDTYPE" data-valmsg-replace="true"></span>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-md-2" for="COLLECTIONMODE">Collection Mode</label>
+        <i class="fa fa-question-circle right" title="" data-placement="right" data-toggle="tooltip" href="#" data-html="true" data-original-title="1 for Web<br>2 for POS (manual)<br> 3 for POS (scanned)<br>4 for Tel<br>5 for IVR<br>6 for Email<br>7 for Pre-Authorization<br>8 for Web (other)<br>9 for Mailroom-Dropbox (manual)<br>10 for Mailroom-Dropbox (scanned)" aria-hidden="true"></i>
+        <div class="col-md-4">
+            <input value="1" class="form-control text-box single-line" id="COLLECTIONMODE" name="COLLECTIONMODE" type="text">
+            <span class="field-validation-valid text-danger" data-valmsg-for="COLLECTIONMODE" data-valmsg-replace="true"></span>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-md-2" for="AMOUNT">Amount</label>
+        <i class="fa fa-question-circle right" title="" data-placement="right" data-toggle="tooltip" href="#" data-html="true" data-original-title="Amount total should equal the sum of all line item amounts" aria-hidden="true"></i>
+        <div class="col-md-4">
+            <div class="input-group">
+                <div class="input-group-addon">$</div>
+                <input class="form-control text-box single-line" id="amount" name="AMOUNT" type="text" value="">
+                <span class="field-validation-valid text-danger" data-valmsg-for="AMOUNT" data-valmsg-replace="true"></span>
+                <div class="input-group-addon">.00</div>
+            </div>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-md-2" for="LINEITEM_CUSTOMERPAYMENTTYPEID">Client Payment Type Identifier</label>
+        <i class="fa fa-question-circle right" title="" data-placement="right" data-toggle="tooltip" href="#" data-original-title="Client payment type name i.e. 'Business Tax' or whatever client provided as a value. Used for the purpose of a join between the CSI portal and the client's MIS and/or CIS systems" aria-hidden="true"></i>
+        <div class="col-md-4">
+            <input value="Business Tax" class="form-control text-box single-line" id="LINEITEM_CUSTOMERPAYMENTTYPEID" name="LINEITEM.CUSTOMERPAYMENTTYPEID" type="text">
+            <span class="field-validation-valid text-danger" data-valmsg-for="LINEITEM.CUSTOMERPAYMENTTYPEID" data-valmsg-replace="true"></span>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-md-2" for="LINEITEM_ITEMAMOUNT">Item Amount</label>
+        <div class="col-md-4">
+            <div class="input-group">
+                <div class="input-group-addon">$</div>
+                <input class="form-control text-box single-line" id="amount" name="LINEITEM.ITEMAMOUNT" type="text" value="">
+                <span class="field-validation-valid text-danger" data-valmsg-for="LINEITEM.ITEMAMOUNT" data-valmsg-replace="true"></span>
+                <div class="input-group-addon">.00</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="form-group">
+
+        <div class="col-md-offset-2 col-md-8">
+            <input type="submit" value="Submit" class="btn btn-primary btn-lg btnSubmit">
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
