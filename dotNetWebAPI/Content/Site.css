@@ -1,6 +1,8 @@
 ﻿body {
     padding-top: 50px;
     padding-bottom: 20px;
+    background: url('../Images/cubes.png') repeat;
+    background-attachment: fixed;
 }
 
 /* Set padding to keep content from hitting the edges */
@@ -8,10 +10,62 @@
     padding-left: 15px;
     padding-right: 15px;
 }
-
+.jumbotron{
+    background-color:#ffffff;
+}
+/* Override the default bootstrap behavior where horizontal description lists 
+   will truncate terms that are too long to fit in the left column 
+*/
+.dl-horizontal dt {
+    white-space: normal;
+}
+.list-group-bg{
+    background-color:#486075 !important; border-color:#51697d !important; color:#fff !important;
+}
 /* Set width on the form input elements since they're 100% wide by default */
-input,
+/*input,
 select,
 textarea {
     max-width: 280px;
+}*/
+.container .jumbotron {
+  border-bottom-left-radius: 6px;
+  border-bottom-right-radius: 6px;
+   border-top-right-radius: 0;
+   border-top-left-radius: 0;
+}
+.navbar-default .navbar-nav > li > a:hover,
+.navbar-default .navbar-nav > li > a:focus {
+  color: #ff6600;
+  background-color: transparent;
+}
+.panel-title a:hover, a:focus {
+    text-decoration: none;
+}
+.panel-title a:active {
+    text-decoration: none;
+}
+.panel-title a:visited{
+    text-decoration: none;
+}
+.ing{
+    font-size:14px;
+}
+.fa{
+  cursor:pointer;
+}
+
+.loader {
+    display: none;
+    position: fixed;
+    left: 0px;
+    top: 0px;
+    width: 100%;
+    height: 100%;
+    z-index: 9999;
+    background: url('../Images/ring-alt.gif') 50% 50% no-repeat rgba(249,249,249,0.7);
+}
+a.disabled
+{
+    color: #CCC;
 }
