@@ -1,4 +1,5 @@
 ﻿using dotNetWebAPI.Models;
+using Newtonsoft.Json;
 using RestSharp;
 using System;
 using System.Collections.Generic;
@@ -35,10 +36,10 @@ namespace dotNetWebAPI.Controllers
             {
                 ServicePointManager.SecurityProtocol = (SecurityProtocolType)3072;
                 var request = new RestRequest("api/fee", Method.POST) { RequestFormat = DataFormat.Json };
-                request.AddHeader("Accept", "application/json");
                 request.AddBody(fee);
-                var response = client.Execute<CalculateFeeResponseModels.FEE>(request);
-                TempData["CalculateFeeResponse"] = response;
+                IRestResponse response = client.Execute<CalculateFeeResponseModels.FEE>(request);
+                //send data to partial view so it can be displayed//
+                TempData["CalculateFeeResponse"] = JsonConvert.DeserializeObject<CalculateFeeResponseModels.FEE>(response.Content);
                 return View();
             }
             catch (Exception e)

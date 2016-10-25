@@ -15,12 +15,14 @@ namespace dotNetWebAPI.Models
     {
         public class FEE
         {
-            [DisplayName("Fee Amount")]
-            [JsonProperty(PropertyName = "FEEAMOUNT")]
-            public string FEEAMOUNT { get; set; }
-            [DisplayName("Response Code")]
-            [JsonProperty(PropertyName = "RESPONSECODE")]
-            public string RESPONSECODE { get; set; }
+            public double feeAmount { get; set; }
+            public string status { get; set; }
+            public List<Error> errors { get; set; }
+        }
+        public class Error
+        {
+            public string id { get; set; }
+            public string message { get; set; }
         }
     }
 }

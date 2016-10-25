@@ -1,5 +1,6 @@
 ﻿@model dotNetWebAPI.Models.CalculateFeeModels.FEE
 @using dotNetWebAPI.Models;
+@using dotNetWebAPI.Helpers;
 
 @{
     ViewBag.Title = "Calculate Fee";
@@ -48,40 +49,28 @@
                 @Html.ValidationMessageFor(model => model.collectionMode, "", new { @class = "text-danger" })
             </div>
         </div>
-        @*<div class="form-group">
-            @Html.LabelFor(model => model.AMOUNT, htmlAttributes: new { @class = "control-label col-md-2" })
-            <i class="fa fa-question-circle right" title="" data-placement="right" data-toggle="tooltip" href="#" data-html="true" data-original-title="Amount total should equal the sum of all line item amounts" aria-hidden="true"></i>
-            <div class="col-md-4">
-                <div class="input-group">
-                    <div class="input-group-addon">$</div>
-                    @Html.EditorFor(model => model.AMOUNT, new { htmlAttributes = new { @class = "form-control", @id = "amount" } })
-                    @Html.ValidationMessageFor(model => model.AMOUNT, "", new { @class = "text-danger" })
-                    <div class="input-group-addon">.00</div>
-                </div>
-            </div>
-        </div>*@
-        @foreach (var item in Model.lineItems)
-          {
+      
+       
         <div class="form-group">
-            @Html.LabelFor(model => item.paymentType, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.lineItems[0].paymentType, htmlAttributes: new { @class = "control-label col-md-2" })
             <i class="fa fa-question-circle right" title="" data-placement="right" data-toggle="tooltip" href="#" data-original-title="Client payment type name i.e. 'Business Tax' or whatever client provided as a value. Used for the purpose of a join between the CSI portal and the client's MIS and/or CIS systems" aria-hidden="true"></i>
             <div class="col-md-4">
-                @Html.EditorFor(model => item.paymentType, new { htmlAttributes = new { @class = "form-control", @Value = "Business Tax" } })
-                @Html.ValidationMessageFor(model => item.paymentType, "", new { @class = "text-danger" })
+                @Html.EditorFor(model => model.lineItems[0].paymentType, new { htmlAttributes = new { @class = "form-control", @Value = "Business Tax" } })
+                @Html.ValidationMessageFor(model => model.lineItems[0].paymentType, "", new { @class = "text-danger" })
             </div>
         </div>
         <div class="form-group">
-            @Html.LabelFor(model => item.amount, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.lineItems[0].amount, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-4">
                 <div class="input-group">
                     <div class="input-group-addon">$</div>
-                    @Html.EditorFor(model => item.amount, new { htmlAttributes = new { @class = "form-control", @id = "amount" } })
-                    @Html.ValidationMessageFor(model => item.amount, "", new { @class = "text-danger" })
+                    @Html.EditorFor(model => model.lineItems[0].amount, new { htmlAttributes = new { @class = "form-control", @id = "amount" } })
+                    @Html.ValidationMessageFor(model => model.lineItems[0].amount, "", new { @class = "text-danger" })
                     <div class="input-group-addon">.00</div>
                 </div>
             </div>
         </div>
-        }
+      
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         <div class="form-group">
 
@@ -91,12 +80,9 @@
         </div>
     </div>
 }
-@{
-    var calcFeeResponse = (TempData["CalculateFeeResponse"] as CalculateFeeResponseModels.FEE);
-}
 <p>
     @{
-        Html.RenderPartial("_CalculateFeeResponsePartial", calcFeeResponse);
+        Html.RenderPartial("_CalculateFeeResponsePartial", TempData["CalculateFeeResponse"]);
     }
 </p>
 <div>
