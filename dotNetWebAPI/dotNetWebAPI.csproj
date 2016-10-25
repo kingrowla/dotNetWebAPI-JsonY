@@ -267,6 +267,21 @@
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
+    <Content Include="Images\black_thread.png" />
+    <Content Include="Images\cubes.png" />
+    <Content Include="Images\dark_Tire.png" />
+    <Content Include="Images\favicon.png" />
+    <Content Include="Images\image2016-7-15 9-52-11.png" />
+    <Content Include="Images\jetpay-small.png" />
+    <Content Include="Images\jetpay_w_small.png" />
+    <Content Include="Images\magic-logo-color.png" />
+    <Content Include="Images\magic-text-logo.png" />
+    <Content Include="Images\magicUtils.png" />
+    <Content Include="Images\magic_logo_white.png" />
+    <Content Include="Images\random_grey_variations.png" />
+    <Content Include="Images\ring-alt.gif" />
+    <Content Include="Images\ripple.gif" />
+    <Content Include="Images\white_brick_wall.png" />
     <Content Include="Scripts\ai.0.22.19-build00125.js" />
     <Content Include="Scripts\ai.0.22.19-build00125.min.js" />
     <Content Include="Scripts\bootstrap.js" />
@@ -331,7 +346,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Images\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
