@@ -23,6 +23,9 @@
 /* Override the default bootstrap behavior where horizontal description lists 
    will truncate terms that are too long to fit in the left column 
 */
+.well{
+    background-color:#252d35;
+}
 .navbar-nav > li > a {
     padding-top: 15px;
     padding-bottom: 9.5px;

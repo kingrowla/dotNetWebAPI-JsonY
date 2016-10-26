@@ -44,23 +44,34 @@ namespace dotNetWebAPI.Controllers
                 return View("Error");
             }
         }
+        // GET: VirtualTerminalTransaction
+        [HttpGet]
+        public ActionResult VirtualTerminalTransactionPost()
+        {
+            return View();
+        }
+
         // POST: VirtualTerminalTransaction
         [HttpPost]
         public ActionResult VirtualTerminalTransactionPost(VirtualTerminalTransactionPostModels.VT_TRANSACTION transaction)
         {
             try
             {
-                return View();
-                ////send data to partial view so it can be displayed//
-                //TempData["VTPostResponse"] = response;
-                //if (response.RESPONSECODE.StartsWith("Y"))
-                //{
-                //    return Redirect("https://stage.collectorsolutions.com/magic-ui/VirtualTerminal/csi-live/" + response.TRANSACTIONID);
-                //}
-                //else
-                //{
-                //    return View();
-                //}
+                ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;//Needed for .net4.5 and below
+                var request = new RestRequest("api/transaction/redirect", Method.POST) { RequestFormat = DataFormat.Json };
+                request.AddBody(transaction);
+                IRestResponse response = client.Execute<VirtualTerminalTransactionPostResponseModels.VT_TRANSACTION>(request);
+                //send data to partial view so it can be displayed//
+                var vtResponse = JsonConvert.DeserializeObject<VirtualTerminalTransactionPostResponseModels.VT_TRANSACTION>(response.Content);
+                TempData["VTPostResponse"] = vtResponse;
+                if (vtResponse.RESPONSECODE.StartsWith("Y"))
+                {
+                    return Redirect("https://stage.collectorsolutions.com/magic-ui/VirtualTerminal/csi-live/" + vtResponse.TRANSACTIONID);
+                }
+                else
+                {
+                    return View();
+                }
             }
             catch (Exception e)
             {
