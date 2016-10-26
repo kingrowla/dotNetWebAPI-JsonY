@@ -13,9 +13,6 @@ namespace dotNetWebAPI.Controllers
 {
     public class MagicAPIController : Controller
     {
-
-        //private readonly RestClient _client;
-        //private readonly string _url = ConfigurationManager.AppSettings["https://stage.collectorsolutions.com/magic-api/"];
         private RestClient client = new RestClient("https://stage.collectorsolutions.com/magic-api/");
         [HttpGet]
         public ActionResult Index()
@@ -34,7 +31,7 @@ namespace dotNetWebAPI.Controllers
         {
             try
             {
-                ServicePointManager.SecurityProtocol = (SecurityProtocolType)3072;
+                ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;//Needed for .net4.5 and below
                 var request = new RestRequest("api/fee", Method.POST) { RequestFormat = DataFormat.Json };
                 request.AddBody(fee);
                 IRestResponse response = client.Execute<CalculateFeeResponseModels.FEE>(request);
