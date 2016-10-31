@@ -13,6 +13,9 @@
 .jumbotron{
     background-color:#546473;
 }
+.badge{
+    border:1px solid #ebebeb !important;
+}
 .list-group-item.disabled, .list-group-item.disabled:hover, .list-group-item.disabled:focus {
     background-color: #404650;
     color: #909ca7;

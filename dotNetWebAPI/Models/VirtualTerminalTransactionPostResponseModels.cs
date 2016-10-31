@@ -12,8 +12,8 @@ namespace dotNetWebAPI.Models
         {
             [JsonProperty(PropertyName = "TRANSACTIONID")]
             public string TRANSACTIONID { get; set; }
-            [JsonProperty(PropertyName = "RESPONSECODE")]
-            public string RESPONSECODE { get; set; }
+            [JsonProperty(PropertyName = "status")]
+            public string status { get; set; }
         }
     }
 }

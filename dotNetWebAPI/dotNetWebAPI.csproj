@@ -341,7 +341,6 @@
     <Content Include="Views\MagicAPI\VirtualTerminalTransactionGet.cshtml" />
     <Content Include="Views\MagicAPI\VirtualTerminalTransactionPost.cshtml" />
     <Content Include="Views\MagicAPI\_VirtualTerminalTransactionPostResponsePartial.cshtml" />
-    <Content Include="Views\MagicAPI\_VirtualTerminalTransactionGetResponsePartial.cshtml" />
     <Content Include="Views\Home\Help.cshtml" />
   </ItemGroup>
   <ItemGroup>
