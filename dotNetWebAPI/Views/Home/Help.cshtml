@@ -30,7 +30,8 @@
                 <div class="panel-body">
                     <h5><span class="label label-primary">Answer</span></h5>
                     <p>
-                        Magic Servics call use TLS 1.2 transport security. If you are not using .NET 4.5.2 or higher, you need to follow these steps:
+                        Magic api uses TLS 1.2 transport security. If you are not using .NET 4.5.2 or higher, you need to follow these steps:
+                        <h4>.NET 4.0 and Visual Studio 2013</h4>
                         <ul>
                             <li>Close VS 2013</li>
                             <li>Install the following extension: <a href="https://visualstudiogallery.msdn.microsoft.com/63750942-1ebe-45dd-bade-552dd850873e" target="_blank">https://visualstudiogallery.msdn.microsoft.com/63750942-1ebe-45dd-bade-552dd850873e</a></li>
@@ -42,9 +43,15 @@
                             <li>Uncheck Ssl3 and Tls</li>
                             <li>Check Tls11 and Tls12</li>
                             <li>Click Apply</li>
-                            <li>Add service reference to https://stage.collectorsolutions.com/magic-services</li>
                         </ul>
-                    </p>
+                        <h4>.NET 4.5 and Visual Studio 2015</h4>
+                           <span>Add the following to each call (see github example controller)</span><br>     
+                           <span>
+                              <small>ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;</small>
+                            </span>
+                        
+                       
+                   
                 </div>
             </div>
         </div>
