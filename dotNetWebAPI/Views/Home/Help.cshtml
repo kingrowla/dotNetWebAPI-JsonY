@@ -7,7 +7,7 @@
         <div class="panel panel-default ">
             <div class="panel-heading accordion-toggle question-toggle collapsed" data-toggle="collapse" data-parent="#faqAccordion" data-target="#question0">
                 <h4 class="panel-title">
-                    <a href="#" class="ing"><span class="label label-default">Question</span>  I am getting an error code. Where can I find a list of error codes?</a>
+                    <a href="#" class="ing"><span class="label label-default">Question</span>  I am getting an error. How do I debug?</a>
                 </h4>
 
             </div>
@@ -15,7 +15,21 @@
                 <div class="panel-body">
                     <h5><span class="label label-primary">Answer</span></h5>
                     <p>
-                        TBD, awaiting documentation.
+                        TBD, awaiting documentation; however, there should be an explaination or 'message' returned with each error. Our error messages were coded to be as descriptive as possible. If you do not get a message it could be your syntax is malformed. <br>See example below:
+                        <br><code>
+                                {
+                                "status":"error",
+                                "errors":[
+                                {
+                                "message":"Cannot deserialize the current JSON object…"
+                                },
+                                {
+                                "message":"The lineItems field is required."
+                                }
+                                ]
+                                }
+
+                        </code>
                     </p>
                 </div>
             </div>
